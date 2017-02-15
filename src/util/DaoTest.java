@@ -1,6 +1,6 @@
 package util;
+import daoImpl.MemberDAOImpl;
 import domain.MemberBean;
-import dao.MemberDAOImpl;
 public class DaoTest {
 	public static void main(String[] args) {
 		MemberBean member= new MemberBean();;

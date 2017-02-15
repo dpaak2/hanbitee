@@ -1,7 +1,8 @@
-package dao;
+package daoImpl;
 import java.sql.*;
 import java.util.*;
 import constants.Database;
+import dao.MemberDAO;
 import domain.DatabaseBean;
 import domain.MemberBean;
 import enums.Vendor;

@@ -3,7 +3,7 @@ package serviceImpl;
 import domain.MemberBean;
 import service.MemberService;
 import dao.MemberDAO;
-import dao.MemberDAOImpl;
+import daoImpl.MemberDAOImpl;
 
 public class MemberServiceImpl implements MemberService{
 	private static MemberServiceImpl instance= new MemberServiceImpl(); //sigleton pattern
