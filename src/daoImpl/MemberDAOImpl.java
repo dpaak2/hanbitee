@@ -33,22 +33,8 @@ public class MemberDAOImpl implements MemberDAO {
 				member.setPhone(rs.getString("phone"));
 				member.setEmail(rs.getString("email"));
 				member.setRank(rs.getString("rank"));
-				
 			}
 		return member;
-	}
-
-	@Override
-	public boolean login(MemberBean member)throws Exception {
-		
-		String sql=String.format("select password from MEMBER where id= %s and %s",member.getId(),member.getPassword());
-			Statement stmt= DatabaseFactory.createDatabase(Vendor.ORACLE, Database.USERNAME, Database.PASSWORD).getConnection().createStatement();
-			ResultSet rs=stmt.executeQuery(sql);
-			if(rs.next()){
-				member.setId(rs.getString("id"));
-				member.setPassword(rs.getString("password"));
-			}
-		return false;
 	}
 
 	@Override

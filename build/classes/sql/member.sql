@@ -20,3 +20,4 @@ values('hong','홍길동',
 UPDATE MEMBER SET id,name,ssn,email,phone,password,profileImg,rank
 select * from member where id='hong';
 select password from MEMBER where id='hong' ;
+SELECT * FROM MEMBER;

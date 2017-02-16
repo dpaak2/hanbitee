@@ -1,4 +1,4 @@
-package daoImpl;
+/*package daoImpl;
 import java.sql.*;
 import java.util.*;
 import constants.Database;
@@ -15,12 +15,12 @@ public class MemberDAOImpl2 implements MemberDAO {
 	private ResultSet set;
 	
 	public MemberDAOImpl2(){ //default 생성자 ,default constructor
-		/*2.DatabaseFactory dbfactory= new DatabaseFactory();
+		2.DatabaseFactory dbfactory= new DatabaseFactory();
 		3.*아직 완성되지 않음 DatabaseFactory dbfactory= DatabaseBean createDatabase(Vendor.ORACLE, Database.USERNAME, Database.PASSWORD);
 		DatabaseBean data2=dbfactory.createDatabase(Vendor.ORACLE, Database.USERNAME, Database.PASSWORD);
 		1.DatabaseBean data=new DatabaseBean(Database.ORACLE_DRIVER,Database.ORACLE_URL,Database.USERNAME,
 				Database.PASSWORD);
-		connection=data2.getConnection(); -factory pattern 과정*/
+		connection=data2.getConnection(); -factory pattern 과정
 		
 		try {	
 			DatabaseBean db=DatabaseFactory.createDatabase(Vendor.ORACLE, Database.USERNAME, Database.PASSWORD);
@@ -43,7 +43,7 @@ public class MemberDAOImpl2 implements MemberDAO {
 		MemberBean member=new MemberBean();
 		
 	    try {
-	         /*sql="SELECT * FROM member WHERE id ='"+id+"'";*/
+	         sql="SELECT * FROM member WHERE id ='"+id+"'";
 	         set = stmt.executeQuery(String.format("SELECT * FROM member WHERE id ='%s'",id));
 			while(set.next()){ //memberBean의 setName은 set.getString (DB의 name이다)
 				member.setName(set.getString("name"));//NAME= DB의 ATTRIBUTE  
@@ -56,8 +56,15 @@ public class MemberDAOImpl2 implements MemberDAO {
 	}
 
 	@Override
-	public boolean login(MemberBean pw) {
-		// TODO Auto-generated method stub
+	public boolean login(MemberBean member)throws Exception {
+		
+		String sql=String.format("select password from MEMBER where id= %s and %s",member.getId(),member.getPassword());
+			Statement stmt= DatabaseFactory.createDatabase(Vendor.ORACLE, Database.USERNAME, Database.PASSWORD).getConnection().createStatement();
+			ResultSet rs=stmt.executeQuery(sql);
+			if(rs.next()){
+				member.setId(rs.getString("id"));
+				member.setPassword(rs.getString("password"));
+			}
 		return false;
 	}
 
@@ -74,3 +81,4 @@ public class MemberDAOImpl2 implements MemberDAO {
 	}
 
 }
+*/
