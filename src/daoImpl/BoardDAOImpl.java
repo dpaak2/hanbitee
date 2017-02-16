@@ -76,7 +76,7 @@ public class BoardDAOImpl implements BoardDAO{
 	@Override
 	public int update(ArticleBean param) throws Exception {
 		int rs=0;
-		String sql=String.format("", "");
+		String sql=String.format("UPDATE ", "");
 		Statement stmt=DatabaseFactory.createDatabase(Vendor.ORACLE, Database.USERNAME, Database.PASSWORD).getConnection().createStatement();
 		rs=stmt.executeUpdate(sql);
 		return rs;

@@ -54,6 +54,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public int update(ArticleBean param)throws Exception  {
 		int rs=0;
+		rs=dao.update(param);
 	/*	for(ArticleBean art:list){
 			String a=
 			if(param.getSeq().equals(art.getSeq())){
@@ -67,7 +68,9 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public int delete(ArticleBean param)throws Exception {
-		return BoardDAOImpl.getInstance().delete(param);
+		int rs=0;
+		rs=dao.delete(param);
+		return rs;
 	}
 
 }

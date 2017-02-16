@@ -10,3 +10,4 @@ public interface BoardService {
 	public int update(ArticleBean param)throws Exception;
 	public int delete(ArticleBean param)throws Exception;
 }
+ 
