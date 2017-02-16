@@ -31,7 +31,7 @@ public class BoardServiceImpl implements BoardService{
 
 	@Override
 	public ArticleBean findOne(ArticleBean param)throws Exception  {
-		ArticleBean article = new ArticleBean();
+		ArticleBean article = dao.selectBySeq(param);
 		
 		return article;
 	}
@@ -39,7 +39,10 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public List <ArticleBean> findSome(String[] param) throws Exception {
 		List <ArticleBean> list = new ArrayList <ArticleBean>();
+		System.out.println("서비스에 넘어간 파라미터1"+param[0]);
+		System.out.println("서비스에 넘어간 파라미터2"+param[1]);
 		list=BoardDAOImpl.getInstance().selectByWord(param);
+		System.out.println("서비스에서 넘어온 리스트결과:"+list);
 	
 		return list;
 	}
@@ -71,6 +74,12 @@ public class BoardServiceImpl implements BoardService{
 		int rs=0;
 		rs=dao.delete(param);
 		return rs;
+	}
+
+	@Override
+	public int count() {
+		
+		return 0;
 	}
 
 }

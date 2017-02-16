@@ -1,3 +1,5 @@
+DROP SEQUENCE art_seq;
+DROP TABLE Article;
 --seq,id,name,title,content,regdate(2017-02-15),readCount--
 --CREATE SEQUENCE
 CREATE SEQUENCE art_seq
@@ -15,21 +17,19 @@ CREATE TABLE Article(
 	content VARCHAR2(100),
 	regdate VARCHAR2(10),
 	readCount DECIMAL,
-	PRIMARY KEY(id)
-	
-)
+	PRIMARY KEY(id))
 SELECT * FROM MEMBER;
 --INSERT
 INSERT INTO Article (art_seq, id, name, title, content, regdate, readCount)
-VALUES(art_seq.NEXTVAL, 'hong', '홍길동', '안녕', '안녕하세요? 홍길동 입니다.', '2017-02-15',1)
+VALUES(art_seq.NEXTVAL, 'hong', '홍길동', '안녕', '안녕하세요? 홍길동 입니다.', '2017-02-15',1);
 INSERT INTO Article (art_seq, id, name, title, content, regdate, readCount)
-VALUES(art_seq.NEXTVAL, 'kim', '김유신', 'aaa', '안녕하세요? 홍길동 입니다.', '2017-02-15',1)
+VALUES(art_seq.NEXTVAL, 'kim', '김유신', 'aaa', '안녕하세요? 홍길동 입니다.', '2017-02-15',1);
 INSERT INTO Article (art_seq, id, name, title, content, regdate, readCount)
-VALUES(art_seq.NEXTVAL, 'lee', '홍길동', '안녕', '안녕하세요? 홍길동 입니다.', '2017-02-15',1)
+VALUES(art_seq.NEXTVAL, 'lee', '홍길동', '안녕', '안녕하세요? 홍길동 입니다.', '2017-02-15',1);
 INSERT INTO Article (art_seq, id, name, title, content, regdate, readCount)
-VALUES(art_seq.NEXTVAL, 'choi', '홍길동', '안녕', '안녕하세요? 홍길동 입니다.', '2017-02-15',1)
+VALUES(art_seq.NEXTVAL, 'choi', '홍길동', '안녕', '안녕하세요? 홍길동 입니다.', '2017-02-15',1);
 INSERT INTO Article (art_seq, id, name, title, content, regdate, readCount)
-VALUES(art_seq.NEXTVAL, 'yoo', '홍길동', '안녕', '안녕하세요? 홍길동 입니다.', '2017-02-15',1)
+VALUES(art_seq.NEXTVAL, 'yoo', '홍길동', '안녕', '안녕하세요? 홍길동 입니다.', '2017-02-15',1);
 --READ ALL
 SELECT * FROM Article;
 --READ SOME
@@ -40,3 +40,6 @@ SELECT * FROM Article WHERE art_seq=5;
 UPDATE Article SET content = '자유게시판' WHERE id='hong';
 --DELETE
 DELETE FROM Article WHERE id = 'hong';
+SELECT art_seq,id,title,content,regdate,readCount FROM Article WHERE title LIKE '%안%';
+SELECT art_seq,id,title,content,regdate,readCount FROM ARTICLE;
+SELECT art_seq,id,title,content,regdate,readCount FROM Article WHERE  art_seq='5' LIKE TITLE= '안%' ;
