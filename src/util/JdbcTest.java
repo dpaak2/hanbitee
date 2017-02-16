@@ -1,7 +1,17 @@
 package util;
 import java.sql.*;
 import constants.Database;
+import domain.DatabaseBean;
 public class JdbcTest {
+	public String getName(){
+		try {
+			Class.forName(Database.ORACLE_DRIVER);
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	public static void main(String[] args) {
 		try {
 			Class.forName(Database.ORACLE_DRIVER); //setter ,생성자에 들어가야한다
