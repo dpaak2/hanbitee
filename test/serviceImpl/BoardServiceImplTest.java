@@ -12,12 +12,13 @@ import domain.ArticleBean;
 
 public class BoardServiceImplTest {
 
-	@Test @Ignore
+/*	@Test @Ignore
 	public void testAddArticle() throws Exception{
 		BoardServiceImpl service =BoardServiceImpl.getIsntance();
-/*		assertTrue(service.getIsntance().addArticle(""));*/
+		
+		assertTrue(service.addArticle(param)>0);
 	}
-
+*/
 	@Test  @Ignore
 	public void testFindOne() throws Exception{
 		BoardServiceImpl service =BoardServiceImpl.getIsntance();
@@ -43,8 +44,8 @@ public class BoardServiceImplTest {
 	public void testList()throws Exception {
 		BoardServiceImpl service= BoardServiceImpl.getIsntance();
 		List<ArticleBean> list=new ArrayList<ArticleBean>();
-		ArticleBean bean=new ArticleBean();
-		assertTrue(service.list().equals());
+		list=service.list();
+		assertTrue(list.size()>0);
 		
 	}
 
@@ -52,6 +53,11 @@ public class BoardServiceImplTest {
 	public void testUpdate()throws Exception {
 		BoardServiceImpl service= BoardServiceImpl.getIsntance();
 		ArticleBean bean= new ArticleBean();
+		bean.setUid("kim");
+		bean.setTitle("잘지냈니?");
+		bean.setContent("보고싶다");
+		assertTrue(service.update(bean)>0);
+		
 	
 	}
 

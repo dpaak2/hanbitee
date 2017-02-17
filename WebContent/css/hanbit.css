@@ -210,6 +210,30 @@ div.gallery_desc {
     background-color: #ffbfdf;
     color: #c0c0c0;
 }
+.paging {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    /* overflow: hidden; */
+    background-color: #333;
+}
+.paging li {
+    float: left;
+}
+.paging li a {
+    display: block;
+    color: #c0c0c0;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+/* Change the link color to #111 (black) on hover */
+.paging li a:hover {
+    background-color: #ff80c0;
+}
+
+
+
 #admin_tab tr td{height:40px;}
 #admin_tab tr th{height:40px;}
 

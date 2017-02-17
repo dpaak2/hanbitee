@@ -11,7 +11,7 @@ public class BoardController {
 	public static void main(String[] args) {
 		ArrayList <ArticleBean> list =new ArrayList <ArticleBean>(); 
 		ArticleBean a= new ArticleBean();
-		BoardService service =new BoardServiceImpl();
+	/*	BoardService service =new BoardServiceImpl();*/
 		BoardButt[] buttons= {BoardButt.EXIT,BoardButt.ADD,BoardButt.FIND_ONE,
 				BoardButt.FIND_SOME, BoardButt.LIST, BoardButt.UPDATE, BoardButt.DELETE
 				};

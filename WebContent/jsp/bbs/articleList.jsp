@@ -11,8 +11,17 @@
 	<link rel="stylesheet" href="../../css/hanbit.css" />
 </head>
 <body>
-	<div style="width: 90%">
+<%
+BoardService service= BoardServiceImpl.getIsntance();
+List <ArticleBean> list= service.list();
+int card=service.count();
+int rowCount=5;
+%>
+	<div style="width: 90%; margin-top:10%">
 	<table class="table_default margin_center" style="width: 500px">
+	<tr>
+		<th colspan="5" style="text-align: right"> 총게시글 수 :<%= card %>건 </th>
+	</tr>
 		<tr>
 			<td> No </td>
 			<td> ID </td>
@@ -21,20 +30,7 @@
 			<td> 조회수 </td>
 		</tr>
 <%
-	BoardService service= BoardServiceImpl.getIsntance();
-	List <ArticleBean> list= service.list();
-	int cardinality =5;
-	int articleCount =service.count();
-	int pageCount=0, blockSize= 0,blockCount=0;
-	if(articleCount%cardinality==0){
-		pageCount=pageCount/cardinality;
-	}else{
-		blockCount=articleCount/cardinality+1;
-	}
-	int blockNo=0;
-	int blockStart=0;
-	int blockEnd=0;
-	for(int i=0;i<cardinality;i++){
+	for(int i=0;i<rowCount;i++){
 %>
 		<tr>
 			<td><%= list.get(i).getSeq()%></td>
@@ -46,22 +42,21 @@
 <%
 	}
 %>
-		<tr>
-		<td>
-		<div>
-		<%= "◀ "
-		%>
-			  <%= blockStart %>
-			  <%= blockEnd %>
-			  1  2  3  4  5 
-			  <%= "▶"
-		%>
-		</div>
-		</td>
-		</tr>
-		
-	</table>
-	
+</table>
+		<nav class="margin_center" style="margin: 0 auto 0">
+		<ul class="gnb" style="background-color: white ;">
+<%
+		int pageCount=card /rowCount;
+    	pageCount=(card%rowCount==0)?card /rowCount:(card /rowCount)+1;
+		for(int i=0;i<pageCount;i++ ){
+%>
+		<li style="text-align: center; width: 20px">
+		<a href=""><%=  i+1%></a>
+	   
+		</li>
+		<% 	}%>
+	</ul>
+	</nav>
 	</div>
 	
 </body>

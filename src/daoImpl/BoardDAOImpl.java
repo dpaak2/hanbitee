@@ -92,8 +92,14 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 	@Override
 	public int count() throws Exception {
-		
-		return 0;
+		int count=0;
+		String sql= "SELECT COUNT(*) AS count FROM Article";
+		Statement stmt= DatabaseFactory.createDatabase(Vendor.ORACLE, Database.USERNAME, Database.PASSWORD).getConnection().createStatement();
+		ResultSet rs=stmt.executeQuery(sql);
+		if(rs.next()){
+			count=Integer.parseInt(rs.getString("COUNT"));
+		}
+		return count;
 	}
 
 }

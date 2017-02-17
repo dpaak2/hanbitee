@@ -77,9 +77,10 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public int count() {
-		
-		return 0;
+	public int count()throws Exception {
+		int count=0;
+		count=dao.count();
+		return count;
 	}
 
 }
