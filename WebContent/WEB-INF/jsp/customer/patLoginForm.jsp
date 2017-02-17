@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!doctype html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-<title>bbs_list</title>
-<link rel="stylesheet" href="../../css/hanbit.css" />
-
-</head> 
-
-
+	<title>환자 로그인</title>
+	<link rel="stylesheet" href= "<%=application.getContextPath() %>/css/hanbit.css" />
+	
+</head>
 <body >
 <div id="wrapper" class="width_full_size">
 <div id="header"  class="width_full_size" style="height:50px">
@@ -18,10 +17,10 @@
 </div>
 <div  class="width_full_size" >
 	<ul class="gnb width_full_size text_center bg_color_darkgray" style="height: 40px">
-		<li><a href="../common/join.html">회원가입</a></li>
-		<li><a href="../common/login.html">로그인</a><li>
-			<li><a href="bbs_list.html">게시판</a><li>
-				<li>
+		<li><a href="join.html">회원가입</a></li>
+		<li><a href="login.html">로그인</a><li>
+		<li><a href="../bbs/bbs_list.html">게시판</a><li>
+			<li>
 			<div class="dropdown">
 				<a href="../admin/admin.html">관리자</a>
 		  		<div class="dropdown_content">
@@ -32,69 +31,32 @@
 		  		</div>
 			</div>
 		</li>
-		<li>
+	<li>
 			<div class="tooltip"><a href="#">병원소개</a>
 		    <span class="tooltiptext"> 구현되지 않는 작업입니다.</span>
 		    </div>
 		</li>
-
 	</ul>
 </div>
 </div>
 <div style="height: 100px;"></div>
 <div id="container"  class="width_full_size" style="height:600px">
 
-<!-- content here-->
-<table class="table_default margin_center" style="width: 500px; height: 300px;">
-	<tr class="bg_color_darkgrey color_white " style="height: 20px;">
-		<th class="text_center text_bold">NO</th>
-		<th class="text_center">제목</th>
-		<th class="text_center">작성자</th>
-		<th class="text_center">작성일</th>
-		<th class="text_center">조회수</th>
-	</tr>
-	<tr>
-		<td>100</td>
-		<td>안녕하세요</td>
-		<td>김철수</td>
-		<td>2017.01.13</td>
-		<td>11</td>
-	</tr>
-	<tr>
-		<td>99</td>
-		<td>훌라훌라</td>
-		<td>김영희</td>
-		<td>2017.01.13</td>
-		<td>10</td>
-	</tr>
-	<tr>
-		<td>98</td>
-		<td>금요일이다</td>
-		<td>나경신</td>
-		<td>2017.01.13</td>
-		<td>23</td>
-	</tr>
-	<tr>
-		<td>97</td>
-		<td>후후후후후</td>
-		<td>김제동</td>
-		<td>2017.01.13</td>
-		<td>54</td>
-	</tr>
-	<tr>
-		<td>96</td>
-		<td>눈와요</td>
-		<td>김연아</td>
-		<td>2017.01.13</td>
-		<td>100</td>
-	</tr>
-	<tr>
-			<td colspan="5" class="text_center" style="height: 10px;">
-			1  2  3  4  5   ▶
-			</td>
-			</tr>
-</table>
-
+<form action="patLogin.jsp" style="width:20%;" class="margin_center">
+	<table class="table_default ">
+		<tr style="border: 1px solid black;">
+			<td style="border: 1px solid black;boder-collapse:collapse;"><input type="text" placeholder="아이디" name="id"/></td>
+			<td style="border: 1px solid black;boder-collapse:collapse;" rowspan="2">
+			<input type="submit" value="로그인" 
+			 class="height_full_size width_full_size" style="height:50px; width:50px"/></td>
+			
+		</tr>
+		<tr>
+		<td><input type="PASSWORD" name="pw" placeholder="비밀번호" /></td>
+		</tr>
+	</table>
+	
+</form>
 </div>
 		<div id="footer" class="width_full_size" style="height: 80px; border-top:2px solid #5a5a5a;">
 		<dl class="notice">
