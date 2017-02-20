@@ -1,28 +1,26 @@
-<!DOCTYPE html>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>templet</title>
-<link rel="stylesheet" type="text/css" href="../../css/hanbit.css" />
-<style type="text/css">
-[title~= chief]{border: 5px solid yellow;}
-
-</style>
+	<meta charset="UTF-8" />
+	<title>환자 로그인</title>
+	<link rel="stylesheet" href= "<%=application.getContextPath() %>/css/hanbit.css" />
+	
 </head>
-
 <body >
 <div id="wrapper" class="width_full_size">
 <div id="header"  class="width_full_size" style="height:50px">
 <div class="logo_box width_full_size text_center" style="height:80%" >
-<a href="../../index.html"><img src="../../images/common/index_logo.png" alt="" /></a>
+<a href="../../index.html"><img src="<%=application.getContextPath() %>/images/common/index_logo.png" alt="" /></a>
 
 </div>
 <div  class="width_full_size" >
 	<ul class="gnb width_full_size text_center bg_color_darkgray" style="height: 40px">
-		<li><a href="../common/join.html">회원가입</a></li>
-		<li><a href="../common/login.html">로그인</a><li>
+		<li><a href="join.html">회원가입</a></li>
+		<li><a href="login.html">로그인</a><li>
 		<li><a href="../bbs/bbs_list.html">게시판</a><li>
-		<li>
+			<li>
 			<div class="dropdown">
 				<a href="../admin/admin.html">관리자</a>
 		  		<div class="dropdown_content">
@@ -33,52 +31,32 @@
 		  		</div>
 			</div>
 		</li>
-		<li>
+	<li>
 			<div class="tooltip"><a href="#">병원소개</a>
 		    <span class="tooltiptext"> 구현되지 않는 작업입니다.</span>
 		    </div>
-		<li>
+		</li>
 	</ul>
 </div>
 </div>
 <div style="height: 100px;"></div>
 <div id="container"  class="width_full_size" style="height:600px">
-<!-- content begin -->
-<div class="gallery" >
-  <a target="_blank" href="../staff/staff_detail" title="chief">
-    <img src="../../images/staff/doctor_1.jpg" alt="Trolltunga Norway" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
-</div>
 
-<div class="gallery">
-  <a target="_blank" href="../../images/staff/doctor_2.jpg">
-    <img src="../../images/staff/doctor_2.jpg" alt="Forest" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="../../images/staff/doctor_3.jpg">
-    <img src="../../images/staff/doctor_3.jpg" alt="Northern Lights" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="../../images/staff/doctor_4.jpg">
-    <img src="../../images/staff/doctor_4.jpg" alt="Mountains" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="../../images/staff/doctor_2.jpg">
-    <img src="../../images/staff/doctor_2.jpg" alt="Forest" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
-</div>
-<!-- content end -->
+<form action="login.jsp" style="width:20%;" class="margin_center">
+	<table class="table_default ">
+		<tr style="border: 1px solid black;">
+			<td style="border: 1px solid black;boder-collapse:collapse;"><input type="text" placeholder="아이디" name="id"/></td>
+			<td style="border: 1px solid black;boder-collapse:collapse;" rowspan="2">
+			<input type="submit" value="로그인" 
+			 class="height_full_size width_full_size" style="height:50px; width:50px"/></td>
+			
+		</tr>
+		<tr>
+		<td><input type="PASSWORD" name="pw" placeholder="비밀번호" /></td>
+		</tr>
+	</table>
+	
+</form>
 </div>
 		<div id="footer" class="width_full_size" style="height: 80px; border-top:2px solid #5a5a5a;">
 		<dl class="notice">

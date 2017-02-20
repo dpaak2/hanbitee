@@ -1,19 +1,8 @@
 package domain;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-public class AdminBean extends MemberBean{
-	private String permission;
-	public void setPermission(String permission){
-		this.permission=permission;
-	}
-	public String getPermission(){
-		return permission;
-	}
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return String.format( "%s(%s)[%s|****|%s|%s|관리자]"
-				,name,ssn,id,phone,email);
-	}
-
-
+@Data public class AdminBean {
+	@Getter@Setter private String admID,admPass,admName,admGen,admPhone,admEmail,admPermission;
 }

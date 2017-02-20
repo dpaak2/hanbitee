@@ -1,7 +1,15 @@
 package domain;
 
-public class ArticleBean {
-	private String seq/*글이기 때문에*/,uid,title,content,regdate,readCount;
+import java.io.Serializable;
+
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
+@Data public class ArticleBean {
+
+	@Getter@Setter
+	private String seq/*글이기 때문에*/,id,title,content,regdate,readCount;
 
 	public String getSeq() {
 		return seq;
@@ -12,11 +20,11 @@ public class ArticleBean {
 	}
 
 	public String getUid() {
-		return uid;
+		return id;
 	}
 
 	public void setUid(String uid) {
-		this.uid = uid;
+		this.id = id;
 	}
 
 	public String getTitle() {
@@ -53,7 +61,7 @@ public class ArticleBean {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return String.format("[ %s | %s | %s | %s | %s ]", seq,uid,title,regdate,"0");
+		return String.format("[ %s | %s | %s | %s | %s ]", seq,id,title,regdate,"0");
 	}
 	
 }

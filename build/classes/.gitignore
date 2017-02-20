@@ -1,10 +1,7 @@
-/serviceImpl/
-/util/
-/daoImpl/
-/sql/
-/Customercontroller/
 /domain/
-/service/
+/serviceImpl/
 /dao/
-/view/
+/daoImpl/
+/service/
 /controller/
+/util/

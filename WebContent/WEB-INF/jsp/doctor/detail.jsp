@@ -1,15 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>templet</title>
-<link rel="stylesheet" type="text/css" href="../../css/hanbit.css" />
-<style type="text/css">
-[title~= chief]{border: 5px solid yellow;}
+<title>staff_detail</title>
+<link rel="stylesheet" href="../../css/hanbit.css" />
 
-</style>
 </head>
-
 <body >
 <div id="wrapper" class="width_full_size">
 <div id="header"  class="width_full_size" style="height:50px">
@@ -19,8 +16,8 @@
 </div>
 <div  class="width_full_size" >
 	<ul class="gnb width_full_size text_center bg_color_darkgray" style="height: 40px">
-		<li><a href="../common/join.html">회원가입</a></li>
-		<li><a href="../common/login.html">로그인</a><li>
+		<li><a href="join.html">회원가입</a></li>
+		<li><a href="login.html">로그인</a><li>
 		<li><a href="../bbs/bbs_list.html">게시판</a><li>
 		<li>
 			<div class="dropdown">
@@ -43,42 +40,43 @@
 </div>
 <div style="height: 100px;"></div>
 <div id="container"  class="width_full_size" style="height:600px">
-<!-- content begin -->
-<div class="gallery" >
-  <a target="_blank" href="../staff/staff_detail" title="chief">
-    <img src="../../images/staff/doctor_1.jpg" alt="Trolltunga Norway" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
-</div>
 
-<div class="gallery">
-  <a target="_blank" href="../../images/staff/doctor_2.jpg">
-    <img src="../../images/staff/doctor_2.jpg" alt="Forest" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
+<table class="table_default" style="width:400px;margin:0 auto;">
+<tr>
+	<td rowspan=2><img src="../../images/common/default_image.jpg" Class="width_full_size height_full_siz"></td>
+	<td >번호</td>
+	<td>000601</td>
+</tr>
+<tr>
+	<td  >소속</td>
+	<td>내과</td>
+	
+</tr>
+<tr>
+	<td rowspan=4 class="text_center font_bold"> 안성기 <br>과장</td>
+</tr>
+<tr>
+	<td>성별</td>
+	<td>M</td>
+</tr>
+<tr>
+	<td>전화</td>
+	<td>010-222-0987</td>
+</tr>
+<tr>	
+	<td>email</td>
+	<td>ask@hanbh.com</td>
+</tr>
+</table>
+<div style="width: 100%">
+	<div style="width: 500px; margin: 10px auto; text-align: center;">
+	<a href="" class="text_no_underline text_center bg_color_darkgrey" style="padding:10px 10px; text-align: bold;">담당환자</a>
+	<a href="" class="text_no_underline text_center bg_color_darkgrey" style="padding:10px 10px; text-align: bold;">담당차트</a>
+	<a href="" class="text_no_underline text_center bg_color_darkgrey" style="padding:10px 10px; text-align: bold;">담당진료</a>
+	</div>
 </div>
+	
 
-<div class="gallery">
-  <a target="_blank" href="../../images/staff/doctor_3.jpg">
-    <img src="../../images/staff/doctor_3.jpg" alt="Northern Lights" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="../../images/staff/doctor_4.jpg">
-    <img src="../../images/staff/doctor_4.jpg" alt="Mountains" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
-</div>
-
-<div class="gallery">
-  <a target="_blank" href="../../images/staff/doctor_2.jpg">
-    <img src="../../images/staff/doctor_2.jpg" alt="Forest" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
-</div>
-<!-- content end -->
 </div>
 		<div id="footer" class="width_full_size" style="height: 80px; border-top:2px solid #5a5a5a;">
 		<dl class="notice">
@@ -104,3 +102,4 @@
 		</div>
 </body>
 </html>
+

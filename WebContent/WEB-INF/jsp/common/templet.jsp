@@ -1,28 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="UTF-8" />
-	<title>환자 로그인</title>
-	<link rel="stylesheet" href= "<%=application.getContextPath() %>/css/hanbit.css" />
-	
+<meta charset="UTF-8">
+<title>templet</title>
+<link rel="stylesheet" type="text/css" href="css/hanbit.css" />
+<style type="text/css">
+
+</style>
 </head>
+
 <body >
 <div id="wrapper" class="width_full_size">
 <div id="header"  class="width_full_size" style="height:50px">
 <div class="logo_box width_full_size text_center" style="height:80%" >
-<a href="../../index.html"><img src="../../images/common/index_logo.png" alt="" /></a>
+<a href="index.html"><img src="../../images/common/index_logo.png" alt="" /></a>
 
 </div>
 <div  class="width_full_size" >
 	<ul class="gnb width_full_size text_center bg_color_darkgray" style="height: 40px">
-		<li><a href="join.html">회원가입</a></li>
-		<li><a href="login.html">로그인</a><li>
-		<li><a href="../bbs/bbs_list.html">게시판</a><li>
-			<li>
+		<li><a href="html/join.html">회원가입</a></li>
+		<li><a href="html/login.html">로그인</a><li>
+		<li><a href="html/board.html">게시판</a><li>
+		<li>
 			<div class="dropdown">
-				<a href="../admin/admin.html">관리자</a>
+				<a href="html/admin.html">관리자</a>
 		  		<div class="dropdown_content">
 				  	<p><a href="" style="color: black;">의사</a></p>
 				  	<p><a href="" style="color: black;">간호사</a></p>
@@ -31,32 +33,17 @@
 		  		</div>
 			</div>
 		</li>
-	<li>
+		<li>
 			<div class="tooltip"><a href="#">병원소개</a>
 		    <span class="tooltiptext"> 구현되지 않는 작업입니다.</span>
 		    </div>
-		</li>
+		<li>
 	</ul>
 </div>
 </div>
 <div style="height: 100px;"></div>
 <div id="container"  class="width_full_size" style="height:600px">
 
-<form action="patLogin.jsp" style="width:20%;" class="margin_center">
-	<table class="table_default ">
-		<tr style="border: 1px solid black;">
-			<td style="border: 1px solid black;boder-collapse:collapse;"><input type="text" placeholder="아이디" name="id"/></td>
-			<td style="border: 1px solid black;boder-collapse:collapse;" rowspan="2">
-			<input type="submit" value="로그인" 
-			 class="height_full_size width_full_size" style="height:50px; width:50px"/></td>
-			
-		</tr>
-		<tr>
-		<td><input type="PASSWORD" name="pw" placeholder="비밀번호" /></td>
-		</tr>
-	</table>
-	
-</form>
 </div>
 		<div id="footer" class="width_full_size" style="height: 80px; border-top:2px solid #5a5a5a;">
 		<dl class="notice">

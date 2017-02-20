@@ -19,9 +19,10 @@
 </div>
 <div  class="width_full_size" >
 	<ul class="gnb width_full_size text_center bg_color_darkgray" style="height: 40px">
-		<li><a href="html/common/join.html">회원가입</a></li>
-		<li><a href="<%= application.getContextPath()%>/login.do">로그인</a><li>
+		<li><a href="<%= application.getContextPath()%>/patient/registerForm.do">회원가입</a></li>
+		<li><a href="<%= application.getContextPath()%>/patient/loginForm.do">로그인</a><li>
 		<li><a href="html/bbs/bbs_list.html">게시판</a><li>
+		<li><a href="<%= application.getContextPath()%>/admin/loginForm.do">관리자</a><li>
 		<li>
 			<div class="dropdown">
 				<a href="html/admin/admin.html">관리자</a>
