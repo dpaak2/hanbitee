@@ -21,6 +21,7 @@ public class Command implements CommandHandler{
 	}
 	
 	public void setView(){
+		System.out.println("확인하세요"+"/WEB-INF/jsp"+this.directory+"/"+this.page+".jsp");
 		this.view="/WEB-INF/jsp"+this.directory+"/"+this.page+".jsp"; /*경로*/
 	}
 

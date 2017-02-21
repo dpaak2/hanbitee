@@ -22,7 +22,7 @@ public class PatientController extends HttpServlet {
 		switch (Separator.command.getAction()) {/*class가 static method 호출, action을 불러옴*/
 		case "move":
 			/*System.out.println(request+ response+ Separator.command);*/
-			DispathcerServlet.send(request, response, Separator.command);
+			DispathcerServlet.send(request, response);
 		
 			break;
 		default:
