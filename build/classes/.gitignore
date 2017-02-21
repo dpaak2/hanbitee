@@ -1,9 +1,4 @@
 /domain/
-/serviceImpl/
-/dao/
-/daoImpl/
-/service/
 /controller/
-/util/
-/handler/
 /factory/
+/util/

@@ -16,6 +16,6 @@ public class Separator {
 		String directory=path.split("\\.")[0];/*path를 .을 기준으로 split 를 쳤을때 0번과 1번이 있는데 index0번의 값을 주겠다.*/
 		String action=request.getParameter("action");/*action인 아이를 데려와 */
 		String page=request.getParameter("page");
-		command= factory.createCommand(directory, action, page);
+		command= CommandFactory.createCommand(directory, action, page); /*CommandFactory가 static이여야 한다*/
 	}
 }

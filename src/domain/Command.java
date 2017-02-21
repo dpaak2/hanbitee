@@ -21,8 +21,14 @@ public class Command implements CommandHandler{
 	}
 	
 	public void setView(){
-		System.out.println("확인하세요"+"/WEB-INF/jsp"+this.directory+"/"+this.page+".jsp");
-		this.view="/WEB-INF/jsp"+this.directory+"/"+this.page+".jsp"; /*경로*/
+		if(directory.equals("/home")){ /*directory 가 home이면 */
+			System.out.println("확인하세요"+"/WEB-INF/jsp"+this.directory+"/"+this.page+".jsp"); 
+			/*경로의 이름을 common에서 home으로 바꿔준다*/
+			this.view="/WEB-INF/jsp/common/"+this.page+".jsp";/*directory가 common으로 되게 fix를 해준다 */
+		}else{
+			this.view="/WEB-INF/jsp"+this.directory+"/"+this.page+".jsp";
+		}
+		/*()?:;*//*경로*/
 	}
 
 }

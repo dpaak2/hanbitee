@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import util.DispathcerServlet;
 import util.Separator;
 
-@WebServlet("/common.do")
+@WebServlet("/home.do")
 public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
