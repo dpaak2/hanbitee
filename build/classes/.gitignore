@@ -1,4 +1,6 @@
-/domain/
-/controller/
-/factory/
 /util/
+/controller/
+/serviceImpl/
+/sql/
+/daoImpl/
+/service/

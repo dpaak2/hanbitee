@@ -23,16 +23,11 @@ public class PatientServiceImpl implements PatientService{
 	}
 
 	@Override
-	public boolean login(PatientBean patient) throws Exception{
-		boolean check=false;
-		
-		PatientBean pat= new PatientBean();
-		pat= findById(patient.getPatID());
-		if(pat.getPatPass().equals(patient.getPatPass())){
-			check=true;
-			session=pat;
-		}else{}
-		return check;
+	public PatientBean login(PatientBean patient) throws Exception{
+/*	 if(patient.getPatPass().equals(temp.getPassword())){
+		 flag=true;
+	 }*/
+		return this.findById(patient.getPatID());
 	}
 
 	@Override
@@ -52,9 +47,9 @@ public class PatientServiceImpl implements PatientService{
 	}
 
 	@Override
-	public boolean logout() throws Exception {
-		session=null;
-		return true;
+	public PatientBean logout() throws Exception {
+	
+		return new PatientBean();
 	}
 
 }

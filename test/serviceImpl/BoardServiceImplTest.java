@@ -19,7 +19,7 @@ public class BoardServiceImplTest {
 		assertTrue(service.addArticle(param)>0);
 	}
 */
-	@Test  @Ignore
+	@Test 
 	public void testFindOne() throws Exception{
 		BoardServiceImpl service =BoardServiceImpl.getIsntance();
 		ArticleBean bean=new ArticleBean();
@@ -27,7 +27,7 @@ public class BoardServiceImplTest {
 		assertTrue(service.findOne(bean).getUid().equals("kim"));
 	}
 
-	@Test 
+	@Test @Ignore
 	public void testFindSome() throws Exception{
 		BoardServiceImpl service =BoardServiceImpl.getIsntance();
 		String [] arr=new String [2];
@@ -40,16 +40,15 @@ public class BoardServiceImplTest {
 
 	}
 
-	@Test @Ignore
+	@Test
 	public void testList()throws Exception {
 		BoardServiceImpl service= BoardServiceImpl.getIsntance();
 		List<ArticleBean> list=new ArrayList<ArticleBean>();
 		list=service.list();
 		assertTrue(list.size()>0);
-		
-	}
+		}
 
-	@Test @Ignore
+	@Test 
 	public void testUpdate()throws Exception {
 		BoardServiceImpl service= BoardServiceImpl.getIsntance();
 		ArticleBean bean= new ArticleBean();
@@ -61,7 +60,7 @@ public class BoardServiceImplTest {
 	
 	}
 
-	@Test @Ignore
+	@Test
 	public void testDelete() {
 		fail("Not yet implemented");
 	}
