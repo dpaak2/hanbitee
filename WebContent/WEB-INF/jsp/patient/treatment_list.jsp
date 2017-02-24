@@ -2,9 +2,9 @@
 <jsp:include page="../common/top.jsp"/>
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="gnb.jsp"/>
-<div class="con_setting " style="position: relative; top: 150px; text-align:center; width:100%">
+<div id="divTreat">
         <div class="wtac">
-            <table class="pat_detail " style="width: 560px text-align">
+            <table class="pat_detail " style="">
                   <tr>
                         <th style="width:80px">순서</th>
                         <th style="width:80px">진료일</th>
@@ -27,3 +27,11 @@
                   </tr>
             </table>
       </div>
+      <script>
+      $(function(){
+    	  $('#divTreat').addClass('con_setting').
+    	  css('position', 'relative').css('top', '150px').css('text-align','center').css('width','560px text-align').css('width','100%');
+    	  
+		
+	});
+      </script>

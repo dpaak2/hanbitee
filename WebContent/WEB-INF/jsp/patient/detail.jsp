@@ -41,16 +41,17 @@
                         <td>주소</td>
                         <td>${user.patAddr}</td>
                         <td>주치의</td>
-                        <td ><a onclick="docDetail()" href="#"> ${user.docID}</a>                       
+                        <td ><a id="docDetail"> ${user.docID}</a>                       
                         </td>
                   </tr>              
                  </table>
             </div>
     <script>
-    function docDetail() {
-    	alert('의사ID click');
-    	location.href="${context}/doctor.do?action=move&page=detail";
-	}
+    $(function(){
+    	$('#docDetail').click(function() {
+    		location.href = "${context}/doctor.do?action=move&page=detail";
+    	});
+    });
     </script>
 </div>
 <div>
