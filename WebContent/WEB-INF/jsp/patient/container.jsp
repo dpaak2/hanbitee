@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<div id="container"  class="width_full_size" style="height:600px;position: relative;top:100px;">
+<div id="container"  class="width_full_size" style="position: relative;top:100px;">
 <form action="${context}/patient.do"method="get" style="width:20%;" class="margin_center">
 <table class="table_default" style="width: 500px; margin_center;">
 <tr>

@@ -37,7 +37,7 @@ public class PatientDAOImpl implements PatientDAO {
 				member.setPatGen(rs.getString("pat_gen"));
 				member.setPatJumin(rs.getString("pat_jumin"));
 				member.setPatAddr(rs.getString("pat_addr"));
-				member.setPatPHone(rs.getString("pat_phone"));
+				member.setPatPhone(rs.getString("pat_phone"));
 				member.setPatEmail(rs.getString("pat_email"));
 				member.setPatJob(rs.getString("pat_job"));
 				}else{

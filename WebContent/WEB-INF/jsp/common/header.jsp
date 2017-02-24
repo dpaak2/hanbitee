@@ -6,5 +6,5 @@
 </div>
 <div  class="width_full_size" >
 </div>
-<jsp:include page="../common/gnbCommon.jsp"/>
+
 </div>
