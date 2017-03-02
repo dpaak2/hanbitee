@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-	<ul class="gnb width_full_size text_center bg_color_darkgray" style="height: 40px">
-		<li><a href="join.html">회원가입</a></li>
-		<li><a href="login.html">로그인</a><li>
-		<li><a href="../bbs/bbs_list.html">게시판</a><li>
+	<ul id="adminGnb">
+		<li><a>회원가입</a></li>
+		<li><a>로그인</a><li>
+		<li><a>게시판</a><li>
 			<li>
 			<div class="dropdown">
 				<a href="../admin/admin.html">관리자</a>
@@ -20,3 +20,20 @@
 		    </div>
 		</li>
 	</ul>
+	<script>
+	$(function() {
+		$('#adminGnb').addClass('gnb').addClass('width_full_size').addClass('text_center').css('height: 40px');
+		$('#adminGnb li:nth-child(1)').click(function() {
+			alert('jquery test');
+			location.href="join.html";
+		});
+		$('#adminGnb li:nth-child(2)').clcik(function() {
+			alert('jquery test');
+			location.href="login.html";
+		});
+		$('#adminGnb li:nth-child(3)').click(function() {
+			alert('hey');
+			location.href="../bbs/bbs_list.html";
+		});
+	});
+	</script>

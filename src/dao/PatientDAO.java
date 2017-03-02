@@ -7,5 +7,6 @@ public interface PatientDAO  {
 	 public PatientBean selectById(String id)throws Exception; //아이디 찾는것
 	 public int update(PatientBean patient)throws Exception; //회원정보 변경, query문으로 주로 작성
 	 public int delete(PatientBean patient)throws Exception; //탈퇴
+	 public boolean login(PatientBean patient)throws Exception; //로그인
 
 }

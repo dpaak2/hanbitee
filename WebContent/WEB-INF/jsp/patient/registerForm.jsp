@@ -1,79 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>join</title>
-<link rel="stylesheet" href="${css}/hanbit.css" />
-</head>
-
-
-<body >
-<div id="wrapper" class="width_full_size">
-
-<div id="header"  class="width_full_size" style="height:50px">
-<div class="logo_box width_full_size text_center" style="height:80%" >
-<a href="../../index.html"><img src="${img}/common/index_logo.png" alt="" /></a>
-
-</div>
-<div  class="width_full_size" >
-	<ul class="gnb width_full_size text_center bg_color_darkgray" style="height: 40px">
-		<li><a href="join.html">회원가입</a></li>
-		<li><a href="login.html">로그인</a><li>
-		<li><a href="../bbs/bbs_list.html">게시판</a><li>
-			<li>
-			<div class="dropdown">
-				<a href="../admin/admin.html">관리자</a>
-		  		<div class="dropdown_content">
-				  	<p><a href="" style="color: black;">의사</a></p>
-				  	<p><a href="" style="color: black;">간호사</a></p>
-				  	<p><a href="" style="color: black;">진료</a></p>
-				  	<p><a href="" style="color: black;">차트</a></p>
-		  		</div>
-			</div>
-		</li>
-		<li>
-			<div class="tooltip"><a href="#">병원소개</a>
-		    <span class="tooltiptext"> 구현되지 않는 작업입니다.</span>
-		    </div>
-		</li>
-	</ul>
-</div>
-</div>
+<jsp:include page="../common/top.jsp"/>
+<jsp:include page="../common/header.jsp"/>
 <div style="height: 100px;"></div>
 <div id="container"  class="width_full_size" style="height:600px">
 
-<form action=""  action="" style="width:40%;margin:0 auto;">
+<form id="registerForm"  style="width:40%;margin:0 auto;">
 <table class="table_default">
+
 	<tr>
-		<td class="color_blue">한글 또는 영문으로 입력해 주세요</td>
+		<td class="color_blue">영문 소문자 하나이상으로  숫자으로 입력해 주세요</td>
+		ID   <input type="text" name="id" placeholder="Id"/>
+		<input type="button" name="check out" value="중복 확인" /><br/>
 	</tr>
 	<tr>
 		<td>
   <input type="email" name="email">
   <input type="button" onclick="alert('사용가능한 e-mail 입니다')" value="중복확인">
-<p>*LPOINT 아이디는 자주 사용하시는 이메일 주소로 입력해주세요.</p>
+<p>email주소를 입력하여 주세요.</p>
 </td>
 	</tr>
 	<tr>
-		<td><input type="비밀번호" name="비밀번호" value="비밀번호">
+		비밀번호 <td class="color_blue">비밀번호 확인<input type="password" name="password" placeholder="비밀번호">
 		<p class="color_blue">*8~15자의 영문자,숫자,특수문자를 함께 입력해 주세요.</p>
 		</td>
 		</tr>
 	<tr>
-		<td><input type="비밀번호 확인" name="비밀번호 확인"value="비밀번호 확인"></td>
+		이름 <td><input type="text" name="name" placeholder="이 름"></td>
 	</tr>
 	
+	<tr>
+		<td class="color_blue">주 소<input type="text" name="addr" placeholder="주 소 "></td>
+	</tr>
 
 	<tr>
-		<td> <select>
-  <option value="생년">생년</option>
+		<td class="color_blue">
+  <select name="year">
+  <option value="생년" >생년</option>
   <option value="1992">1992년</option>
   <option value="1993">1993년</option>
   <option value="1994">1994년</option>
   <option value="1995">1995년</option>
 </select>
-<select>
+<select name="month">
   <option value="월">월</option>
   <option value="1월">1월</option>
   <option value="2월">2월</option>
@@ -88,7 +56,7 @@
   <option value="11월">11월</option>
   <option value="12월">12월</option>
 </select>
-<select>
+<select name="date">
   <option value="일">일</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -101,75 +69,88 @@
   <option value="9">9</option>
   <option value="10">10</option>
 </select>
+  <select name="doctor">
+  <option value="" selected>의사 선택</option>
+  <option value="dhong">피부과: 홍길동</option>
+  <option value="dahn">내과: 안성기</option>
+  <option value="dkim">외과: 김민종</option>
+  <option value="dkim2">소아과: 김연아</option>
+</select>
+  <select name="nurse">
+  <option value="" >간호사 선택</option>
+  <option value="nkim">김은영</option>
+  <option value="nyoon">윤성애</option>
+  <option value="nshin">신지원</option>
+  <option value="nyou">유정화</option>
+</select>
   </td>
 	</tr>
 	<tr>
-		<td><select>
+		<td class="color_blue">전화번호<select name="telecom">
 			<option value="SKT">SKT</option>
 			<option value="LGU+">LGU+</option>
 			<option value="KT">KT</option>
 		</select>
-		<select>	
-		<option value="010">010</option>
+		<select name="phoneNo1">	
+		<option value="SKT">010</option>
+				<option value="KT">010</option>
+				<option value="LGU">010</option>
+		
 		</select>
 		-
-		<input type="number" />-<input type="number" />
+		<input type="text" name="phoneNo2" />-
+		<input type="text" name="phoneNo3" />
 		</td>
 		
 	</tr>
+	
+	
+<tr>
+<!-- 
+job: 회사원 employee 개발자 developer 스탭 staff  요리사 cook 선생님 teacher 학생 student
+나는 직장 다니면서 학생입니다. 
+ -->
+</tr>
 	<tr>
-		<td>정보수신 동의
-  <input type="checkbox" name="전체선택" > 전체선택
-
-		</td>
-	</tr>
-	<tr>
-		<td>LPOINT 
-		<input type="checkbox" name="LPOINT" >E-Mail
-		<input type="checkbox" name="LPOINT" >SMS
-		<br>
-		롳데시네마
-		<input type="checkbox" name="LPOINT" >E-Mail
-		<input type="checkbox" name="LPOINT" >SMS
-		<p>*정보수신동의를 하시면, 고개혜택 및 이벤트 등 다양한 정보를 받으실 수 있습니다.</p>
+		<td class="color_blue"> 직업(두개이상 선택가능, 단 스탭은 병원 관계자만 체크하세요 )	<br />
+	
+		<input type="checkbox" name="job" value="employee" />회사원
+		<input type="checkbox" name="job" value="developer" />개발자
+		<input type="checkbox" name="job" value="staff" />스탭
+		<br/> <!-- 줄바꿈 -->
+		<input type="checkbox" name="job" value="doctor"/>의사
+		<input type="checkbox" name="job" value="nurse"/>간호사
+		<input type="checkbox" name="job" value="admin"/>관리자
+		<br/>
 		 </td>
 	</tr>
 	<tr>
-		<td>개인정보
-		<br> 유효기간
-		 <input type="radio" name="개인정보"> 탈퇴 시 파기
-		 <input type="radio" name="개인정보"> 1년
-		 <p>*개인정보 유효기간 경과 이후 개인정보를 분리 저장관리 또는 파기합니다.</p>
-		 <br>
-		 <p id="color_blue"> *선택항목에 동의하지 않으셔도 정상적인 서비스를 이용하실 수 있습니다.</p>
-	  <input  type="button" onclick="alert('이전 페이지')" value="이전" style="background-color:grey;">
-	  <input  type="button" onclick="alert('다음 페이지')" value="다음" style="background-color:#2196F3;">
+		<td>성별
+		성별 <input type="radio" name="gender" value="m">남
+			<input type="radio" name="gender" value="f">여
 		</td>
 	</tr>
 	
-</table></form>
+</table>
+<input type="hidden" name="action" value="register"/>
+<input type="hidden" name="page" value="mainPat"/>
+<input type="submit" name="register" value="완료" />
+</form>
 </div>
-		<div id="footer" class="width_full_size" style="height: 80px; border-top:2px solid #5a5a5a;">
-		<dl class="notice">
-		<dt><a href="/NOTICE" class="h_notice">공지사항</a></dt>
+<jsp:include page="../common/footer.jsp"/>
+<script>
+$(function() {
+	var $registerForm=$('#registerForm');
+	var tab=$registerForm.find('table');  /* registerForm 자손중에 table 인것 찾는거쇼 */
+	$().click(function() {
+		$registerForm.attr('action','${context}/patient.do');
+		$registerForm.attr('method','post');
+		alert('전송직전');
+		$registerForm.submit();
 		
-		<dd><a href="http://www.naver.com/NOTICE/read/1100001014/10000000000030649309" onclick="clickcr(this, 'ntc.notice','78011B01_0000000EA10F', '', event)" >네이버 단체 회원 서비스 및 ‘단체회원 이용약관’ 변경에 대한 안내</a></dd>
-		</dl>
-		
-		<dl class="policy">
-			<dt >네이버 정책 및 약관</dt> <!-- class="blind" -->
-			<dd class="f"><a href="http://www.navercorp.com/" target="_blank" id="plc.intronhn">회사소개</a></dd>
-			<dd><a href="http://mktg.naver.com/" id="plc.adinfo">광고</a></dd>
-			<dd><a href="https://submit.naver.com/" id="plc.search">마이비즈니스</a></dd>
-			<dd><a href="https://www.navercorp.com/ko/company/proposalGuide.nhn" target="_blank" id="plc.contact">제휴제안</a></dd>
-			<dd><a href="rules/service.html" id="plc.service">이용약관</a></dd>
-			<dd><a href="rules/privacy.html" id="plc.privacy"><strong>개인정보처리방침</strong></a></dd>
-			<dd><a href="rules/youthpolicy.html" id="plc.youth">청소년보호정책</a></dd>
-			<dd><a href="rules/spamcheck.html" id="plc.policy">네이버 정책</a></dd>
-			<dd><a href="https://help.naver.com/" id="plc.helpcenter">네이버 고객센터</a></dd>
-		</dl>
-		<address>&copy; <strong><a href="http://www.navercorp.com/" target="_blank">NAVER Corp.</a></strong></address>
-		</div>
-		</div>
-</body>
-</html>
+	});
+	
+	
+});
+</script>
+

@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +18,7 @@ import service.PatientService;
 import serviceImpl.MemberServiceImplTest;
 import serviceImpl.PatientServiceImpl;
 import util.DispathcerServlet;
+import util.ParamMap;
 import util.Separator;
 
 @WebServlet({"/patient.do"}) /*parameter안 에서 String 값을 받는다. url로 바뀐다,@webServlet = tomcat을 뜻함
@@ -66,6 +69,60 @@ public class PatientController extends HttpServlet {
 					System.out.println("=====로그인 실패==");
 					Separator.command.setPage("loginForm");
 					System.out.println("가는 페이지 "+Separator.command.getPage());
+					Separator.command.setView();
+					DispathcerServlet.send(request, response);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+		case "register":
+			String patId=request.getParameter("id"); /*parameter안에는 jsp에 있는 이름이랑 같아야 하고 */
+			String email=request.getParameter("email");
+			String name=request.getParameter("name");
+			String addr=request.getParameter("addr");
+			String password=request.getParameter("password");
+			String year=request.getParameter("year");
+			String month=request.getParameter("month");
+			String date=request.getParameter("date");
+			String telecom=request.getParameter("telecom");
+			String phoneNo1=request.getParameter("phoneNo1");
+			String phoneNo2=request.getParameter("phoneNo2");
+			String phoneNo3=request.getParameter("phoneNo3");
+			String gender=request.getParameter("gender");
+			String job=ParamMap.getValues(request, "job"); /*이름이 중요한게 아니라 소스를 보고 logic을 이해해야 한다 static으로 만들었기 떄문에 class로 바로 줄수 있다*/
+			ArrayList<String> list=new ArrayList<>(); /*확인용 debugging */
+			list.add(patId);
+			list.add(email);
+			list.add(password);
+			list.add(name);
+			list.add(year);
+			list.add(month);
+			list.add(date);
+			list.add(telecom);
+			list.add(phoneNo1+"-"+phoneNo2+"-"+phoneNo3);
+			list.add(gender);
+			list.add(job);
+			System.out.println(list);
+			String patJumin="";
+			bean.setPatID(patId);
+			bean.setPatName(name);
+			bean.setPatAddr(addr);
+			bean.setPatEmail(email);
+			bean.setPatPass(password);
+			bean.setPatGen(gender);
+			bean.setPatJumin(patJumin);
+			bean.setPatJob(job);
+			bean.setPatPhone(phoneNo1+phoneNo2+phoneNo3);
+			try {
+
+				int rs= service.join(bean);
+				if(service.join(bean)==1){
+					System.out.println("=====회원가입 성공=="); /*성공일때는 set page,set view가 필요없다*/
+					DispathcerServlet.send(request, response); /*캔트백 이 이렇게 하자고 함 */
+				}else{
+					System.out.println("=====회원가입 실패==");
+					Separator.command.setPage("registerForm"); /*실패하면 가게 되는 page*/
 					Separator.command.setView();
 					DispathcerServlet.send(request, response);
 				}

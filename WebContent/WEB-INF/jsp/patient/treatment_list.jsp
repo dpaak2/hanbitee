@@ -27,11 +27,10 @@
                   </tr>
             </table>
       </div>
+      </div>
       <script>
       $(function(){
     	  $('#divTreat').addClass('con_setting').
-    	  css('position', 'relative').css('top', '150px').css('text-align','center').css('width','560px text-align').css('width','100%');
-    	  
-		
+    	  css('position').css('relative').css('top', '150px').css('text-align','center').css('width','560px text-align').css('width','100%');
 	});
       </script>

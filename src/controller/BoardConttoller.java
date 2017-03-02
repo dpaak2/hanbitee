@@ -21,7 +21,7 @@ public class BoardConttoller extends HttpServlet {
 		Separator.init(request, response);
 		switch (Separator.command.getAction()) {
 		case "move":
-			System.out.println("check"+request+ response+Separator.command);
+			System.out.println("check"+request+ response+ Separator.command);
 			DispathcerServlet.send(request, response);
 			break;
 			default:

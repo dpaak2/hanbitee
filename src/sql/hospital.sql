@@ -139,3 +139,6 @@ INSERT INTO Chart(chart_id, treatID, doc_id, nur_id, pat_id, chart_contents) VAL
 INSERT INTO Chart(chart_id, treatID, doc_id, nur_id, pat_id, chart_contents) VALUES ('s_140226102', '140226102', 'dhong', 'nkim3',  'plee2',  '화상 크림약 처방' );
 INSERT INTO Chart(chart_id, treatID, doc_id, nur_id, pat_id, chart_contents) VALUES ('s_140303003', '140303003', 'dyou',  'npark',  'poh',    '입원치료' );
 INSERT INTO Chart(chart_id, treatID, doc_id, nur_id, pat_id, chart_contents) VALUES ('p_140308087', '140308087', 'dkim3', 'nlee2',  'psong',  '장염 입원치료' );
+
+
+select *from doctor;

@@ -69,4 +69,12 @@ public class PatientDAOImpl implements PatientDAO {
 			return stmt.executeUpdate(sql);
 	}
 
+	@Override
+	public boolean login(PatientBean patient) throws Exception {
+		boolean rs=true;
+		String sql=toString();
+		Statement stmt=DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME,Database.PASSWORD).getConnection().createStatement();
+		return rs;
+	}
+
 }
