@@ -16,7 +16,9 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 	@Override
 	public int insertArticle(ArticleBean param) throws Exception {
-		return DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME,Database.PASSWORD).getConnection().createStatement().executeUpdate(String.format("INSERT INTO Article(art_seq,id,title,content,regdate,read_count)VALUES(art_seq.nextval,'%s','%s','%s','%s','0')", param.getUid(),param.getTitle(),param.getContent(),new SimpleDateFormat("yyyy-MM-dd").format(new Date())));
+		return DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME,Database.PASSWORD).getConnection().createStatement().executeUpdate(String.format(
+				"INSERT INTO Article(art_seq,id,title,content,regdate,read_count)VALUES(art_seq.nextval,'%s','%s','%s','%s','0')", param.getUid()
+				,param.getTitle(),param.getContent(),new SimpleDateFormat("yyyy-MM-dd").format(new Date())));
 	}
 
 	@Override
@@ -63,15 +65,15 @@ public class BoardDAOImpl implements BoardDAO{
 		List<ArticleBean> list=new ArrayList<ArticleBean>();
 		ResultSet rs=DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME,Database.PASSWORD)
 				.getConnection().createStatement().executeQuery(
-						"SELECT art_seq,id,title,content,regdate,readCount FROM article");
+						"SELECT art_seq, pat_id, title, content, regdate, read_count FROM article");
 		while(rs.next()){
 			ArticleBean temp=new ArticleBean();
 			temp.setSeq(rs.getString("art_seq"));
-			temp.setUid(rs.getString("id"));
+			temp.setId(rs.getString("pat_id"));
 			temp.setTitle(rs.getString("title"));
 			temp.setContent(rs.getString("content"));
 			temp.setRegdate(rs.getString("regdate"));
-			temp.setReadCount(rs.getString("readCount"));
+			temp.setReadCount(rs.getString("read_count"));
 			list.add(temp);
 		}
 		return list;

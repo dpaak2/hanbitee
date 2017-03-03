@@ -35,7 +35,7 @@
 		}); 
 		commonGnb.find('li:nth-child(5)').click(function() {
 			alert('board');
-			goPage('${context}/board.do','move','articleList'); /*board의 list는 메인이다*/
+			goPage('${context}/board.do','list','articleList'); /*board의 list는 메인이다*/
 		});
 
 	});

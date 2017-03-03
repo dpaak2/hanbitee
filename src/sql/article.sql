@@ -71,3 +71,6 @@ DELETE FROM Article WHERE pat_id = 'hong';
 SELECT art_seq,pat_id,title,content,regdate,read_count FROM Article WHERE title LIKE '%안%';
 SELECT art_seq,pat_id,title,content,regdate,read_count FROM ARTICLE;
 SELECT art_seq,pat_id,title,content,regdate,read_count FROM Article WHERE  art_seq='5' LIKE TITLE= '안%' ;
+
+
+SELECT art_seq, pat_id, title, content, regdate, read_count FROM article;

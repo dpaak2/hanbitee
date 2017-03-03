@@ -19,7 +19,7 @@ public class PatientDAOImpl implements PatientDAO {
 		/*String.format(
 				"INSERT INTO Member(id,name,ssn,email,phone,password,profileImg,rank) values(",);*/
 	return DatabaseFactory.createDatabase(Vendor.ORACLE, Database.USERNAME, Database.PASSWORD).
-			getConnection().createStatement().executeUpdate("");	
+			getConnection().createStatement().executeUpdate("insert into pat_id, nur_id, doc_id, pat_pass, pat_name, pat_gen, pat_jumin, pat_addr, pat_phone, pat_email, pat_job");	
 	}
 
 	@Override

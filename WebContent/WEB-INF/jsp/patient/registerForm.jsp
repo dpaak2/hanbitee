@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="../common/top.jsp"/>
 <jsp:include page="../common/header.jsp"/>
+<jsp:include page="../common/gnbCommon.jsp"/>
 <div style="height: 100px;"></div>
 <div id="container"  class="width_full_size" style="height:600px">
 
@@ -8,32 +9,37 @@
 <table class="table_default">
 
 	<tr>
-		<td class="color_blue">영문 소문자 하나이상으로  숫자으로 입력해 주세요</td>
-		ID   <input type="text" name="id" placeholder="Id"/>
+		<td class="color_blue margin_center">
+		ID   <input type="text" name="id" placeholder="Id"/> 
 		<input type="button" name="check out" value="중복 확인" /><br/>
+		영문 소문자 하나이상으로  숫자으로 입력해 주세요 <br />
+		</td>
 	</tr>
 	<tr>
-		<td>
+		<td> email
   <input type="email" name="email">
   <input type="button" onclick="alert('사용가능한 e-mail 입니다')" value="중복확인">
-<p>email주소를 입력하여 주세요.</p>
+
 </td>
 	</tr>
 	<tr>
-		비밀번호 <td class="color_blue">비밀번호 확인<input type="password" name="password" placeholder="비밀번호">
+		<td class="color_blue">비밀번호 확인<input type="password" name="password" placeholder="비밀번호">
 		<p class="color_blue">*8~15자의 영문자,숫자,특수문자를 함께 입력해 주세요.</p>
 		</td>
 		</tr>
 	<tr>
-		이름 <td><input type="text" name="name" placeholder="이 름"></td>
+		 <td>이  름 <input type="text" name="name" placeholder="이 름"></td>
 	</tr>
-	
+	<tr>
+	    <td>주민번호 <input type="text" name="oatJumin" placeholder="ex)900101-1000000" /> </td>
+	   </tr>
 	<tr>
 		<td class="color_blue">주 소<input type="text" name="addr" placeholder="주 소 "></td>
 	</tr>
 
 	<tr>
 		<td class="color_blue">
+		생년월일
   <select name="year">
   <option value="생년" >생년</option>
   <option value="1992">1992년</option>
@@ -68,7 +74,8 @@
   <option value="8">8</option>
   <option value="9">9</option>
   <option value="10">10</option>
-</select>
+</select> <br />
+  담당의사, 간호사 선택
   <select name="doctor">
   <option value="" selected>의사 선택</option>
   <option value="dhong">피부과: 홍길동</option>
@@ -86,7 +93,7 @@
   </td>
 	</tr>
 	<tr>
-		<td class="color_blue">전화번호<select name="telecom">
+		<td class="color_blue" >전화번호<select name="telecom">
 			<option value="SKT">SKT</option>
 			<option value="LGU+">LGU+</option>
 			<option value="KT">KT</option>
@@ -98,8 +105,8 @@
 		
 		</select>
 		-
-		<input type="text" name="phoneNo2" />-
-		<input type="text" name="phoneNo3" />
+		<input type="text" name="phoneNo2" style="width: 50px;"  />-
+		<input type="text" name="phoneNo3" style="width: 50px;" />
 		</td>
 		
 	</tr>
