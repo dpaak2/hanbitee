@@ -40,13 +40,13 @@ public class BoardServiceImplTest {
 
 	}
 
-	@Test
+	/*@Test
 	public void testList()throws Exception {
 		BoardServiceImpl service= BoardServiceImpl.getIsntance();
 		List<ArticleBean> list=new ArrayList<ArticleBean>();
-		list=service.list();
+		list=service.list(pageArr);
 		assertTrue(list.size()>0);
-		}
+		}*/
 
 	@Test 
 	public void testUpdate()throws Exception {

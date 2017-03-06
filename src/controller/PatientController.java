@@ -34,8 +34,8 @@ public class PatientController extends HttpServlet {
 		Separator.init(request, response);
 		switch (Separator.command.getAction()) {/*class가 static method 호출, action을 불러옴*/
 		case "move":
-			/*System.out.printl(request+ response+ Separator.command);*/
 			DispathcerServlet.send(request, response);
+			System.out.println("path check:"+request+ response+ Separator.command);
 			break;
 		case"mypage": 
 			String birth=service.getBirth(service.getSession().getPatJumin());
@@ -78,6 +78,8 @@ public class PatientController extends HttpServlet {
 			break;
 		case "register":
 			String patId=request.getParameter("id"); /*parameter안에는 jsp에 있는 이름이랑 같아야 하고 */
+			String docId=request.getParameter("docId");
+			String nurId=request.getParameter("nurId");
 			String email=request.getParameter("email");
 			String name=request.getParameter("name");
 			String addr=request.getParameter("addr");
@@ -93,6 +95,8 @@ public class PatientController extends HttpServlet {
 			String job=ParamMap.getValues(request, "job"); /*이름이 중요한게 아니라 소스를 보고 logic을 이해해야 한다 static으로 만들었기 떄문에 class로 바로 줄수 있다*/
 			ArrayList<String> list=new ArrayList<>(); /*확인용 debugging */
 			list.add(patId);
+			list.add(docId);
+			list.add(nurId);
 			list.add(email);
 			list.add(password);
 			list.add(name);
@@ -104,8 +108,12 @@ public class PatientController extends HttpServlet {
 			list.add(gender);
 			list.add(job);
 			System.out.println(list);
-			String patJumin="";
+			String temp=(gender.equals("male"))?"1":"2";
+			month=(date.length()==1)?"0"+month:month;
+			String patJumin=year.substring(2, 4)+month+date+"-"+temp;
 			bean.setPatID(patId);
+			bean.setDocID(docId);
+			bean.setNurID(nurId);
 			bean.setPatName(name);
 			bean.setPatAddr(addr);
 			bean.setPatEmail(email);

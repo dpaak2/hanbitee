@@ -1,24 +1,28 @@
-package domain;
+package command;
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import handler.CommandHandler;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 @Data
-public class Command implements CommandHandler{
+public class Command{
 	@Getter @Setter
-	private String directory,action,page; /*recursive call을 위한것*/
+	protected String directory,action,page,pageNO; /*recursive call을 위한것*/
 	@Getter 
 	private String view;
+	public Command(){}
 	public Command(String directory, String action, String page) { /*외부에서 받은것 생성자 오버로딩*/
 		this.directory=directory;
 		this.action=action;
 		this.page=page;
 		this.setView(); /*setView is 경로 setView를 보여준다*/
 	}
-	@Override
-	public String process() {		
-		return "";
-	}
+	
 	
 	public void setView(){
 		if(directory.equals("/home")){ /*directory 가 home이면 */
@@ -30,5 +34,4 @@ public class Command implements CommandHandler{
 		}
 		/*()?:;*//*경로*/
 	}
-
 }

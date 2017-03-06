@@ -42,10 +42,15 @@
 		생년월일
   <select name="year">
   <option value="생년" >생년</option>
+  <option value="1989">1989년</option>
+  <option value="1990">1990년</option>
+  <option value="1991">1991년</option>
   <option value="1992">1992년</option>
   <option value="1993">1993년</option>
   <option value="1994">1994년</option>
   <option value="1995">1995년</option>
+  <option value="1996">1996년</option>
+  <option value="1997">1997년</option>
 </select>
 <select name="month">
   <option value="월">월</option>

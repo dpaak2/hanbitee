@@ -17,8 +17,8 @@ public class BoardDAOImpl implements BoardDAO{
 	@Override
 	public int insertArticle(ArticleBean param) throws Exception {
 		return DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME,Database.PASSWORD).getConnection().createStatement().executeUpdate(String.format(
-				"INSERT INTO Article(art_seq,id,title,content,regdate,read_count)VALUES(art_seq.nextval,'%s','%s','%s','%s','0')", param.getUid()
-				,param.getTitle(),param.getContent(),new SimpleDateFormat("yyyy-MM-dd").format(new Date())));
+				"INSERT INTO Article(art_seq,id,title,content,regdate,read_count)VALUES(art_seq.nextval,'%s','%s','%s','%s','0')",
+				param.getUid(),param.getTitle(),param.getContent(),new SimpleDateFormat("yyyy-MM-dd").format(new Date())));
 	}
 
 	@Override
@@ -61,11 +61,21 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 
 	@Override
-	public List<ArticleBean> selectAll() throws Exception {
+	public List<ArticleBean> selectAll(int[]pageArr) throws Exception {
 		List<ArticleBean> list=new ArrayList<ArticleBean>();
+		ArticleBean bean=null;
+		String sql=String.format(
+				"SELECT t2.*"
+				+ "\t FROM (SELECT ROWNUM seq,t.* "
+				+ "\t FROM (SELECT *FROM ARTICLE ORDER BY art_seq DESC) t) t2"
+				+ "\t WHERE t2.seq BETWEEN %s AND %s",String.valueOf(pageArr[0]),
+				String.valueOf(pageArr[1]));
+		System.out.println("selectAll query:"+sql);
 		ResultSet rs=DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME,Database.PASSWORD)
-				.getConnection().createStatement().executeQuery(
-						"SELECT art_seq, pat_id, title, content, regdate, read_count FROM article");
+				.getConnection().createStatement().executeQuery(sql);
+		/*"SELECT art_seq, pat_id, title, content, regdate, read_count FROM article order by art_seq desc"*);*/
+
+
 		while(rs.next()){
 			ArticleBean temp=new ArticleBean();
 			temp.setSeq(rs.getString("art_seq"));

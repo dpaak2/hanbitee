@@ -57,6 +57,8 @@ INSERT INTO Article (art_seq, pat_id, title, content, regdate, read_count)
 VALUES(art_seq.NEXTVAL, 'poh',  '찾아',' 찾아 뛰노는 하는 대중을 생생하며', '2017-03-12',1);
 INSERT INTO Article (art_seq, pat_id, title, content, regdate, read_count)
 VALUES(art_seq.NEXTVAL, 'poh',  '얼음',' 얼음과 인간의 두기 위하여서 있으랴?', '2017-03-13',1);
+
+
 --READ ALL
 SELECT * FROM Article;
 --READ SOME
@@ -74,3 +76,34 @@ SELECT art_seq,pat_id,title,content,regdate,read_count FROM Article WHERE  art_s
 
 
 SELECT art_seq, pat_id, title, content, regdate, read_count FROM article;
+
+SELECT t2.*
+FROM (SELECT ROWNUM seq,t.* 
+FROM (SELECT *FROM ARTICLE ORDER BY art_seq DESC) t) t2
+WHERE t2.seq BETWEEN 6 AND 10;
+
+SELECT t2.*	 FROM (SELECT ROWNUM seq,t.* 	 FROM (SELECT *FROM ARTICLE ORDER BY art_seq DESC) t) t2	 WHERE t2.seq BETWEEN 1 AND 5;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

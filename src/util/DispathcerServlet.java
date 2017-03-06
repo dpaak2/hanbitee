@@ -5,7 +5,8 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import domain.Command;
+
+import command.Command;
 
 public class DispathcerServlet {
 	public static void send(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{request
