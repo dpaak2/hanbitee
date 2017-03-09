@@ -5,7 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import handler.CommandHandler;
+import handler.Commandable;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;

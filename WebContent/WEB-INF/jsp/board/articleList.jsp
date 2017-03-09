@@ -29,8 +29,9 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<nav class="margin_center " style="margin: 0 auto;width: 500px;height: 50px;">
-		<ul class="gnb" style="height: 50px;">
+	</div>
+	<nav id="pagination">
+		<ul>
 		<c:if test="${requestScope.prevBlock gt 0 }">
 		<a  style="color:white" href="${context}/board.do?action=list&page=articleList&pageNO=${requestScope.prevBlock}">◀ PREV</a>
 		</c:if>
@@ -55,16 +56,20 @@
 	</nav>
 	이전블록-시작페이지 ${blockStart}, 다음블록-시작페이지${nextBlock}
 	
-</div>
+
  
 <script>
 	$(function() {
 		var $articleList = $('#articlelist');
 		$articleList.addClass('table_default').addClass('table_bottom')
 				.addClass('margin_center').css('text-align', ' right').css(
-						'width', '500px');
+						'width', '500px').css('margin-top','15px');
 		$articelList.find('th:nth-child(1)').css('text-align', 'left');
-
+		var $pagination=$('#pagination');
+		$pagination.addClass('margin_center').css('margin','0 auto').css('width','500px').css('height','50px');
+		$pagination.find('ul:nth-child(1)').addClass('gnb').css('height','50px'); 	/*고치기*/
 	});
 </script>
+<script>
 
+</script>

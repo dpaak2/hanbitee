@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="../common/header.jsp"/>
 <jsp:include page="../common/top.jsp"/>
-<div id="container">
+<div id="login">
 
 <form action="${context}/patient.do"method="post" style="width:20%;" class="margin_center">
 	<table class="table_default ">
@@ -23,7 +23,9 @@
 </div>
 <script>
 $(function(){
-	$('#container').addClass('width_full_size').css('height','600px')
-	.css('position', 'relative').css('top','100px');});
+	var $login=$('#login');
+	$login.addClass('login').addClass('width_full_size').css('height','600px')
+	.css('position', 'relative').css('top','100px');
+	});
 </script>
 <jsp:include page="../common/footer.jsp"/>

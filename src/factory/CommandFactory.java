@@ -13,7 +13,8 @@ public class CommandFactory {
 		case "move":
 			cmd = new MoveCommand(directory, action, page);
 			break;
-			default:
+		case"login":
+			cmd = new MoveCommand(directory, action, page);
 			break;
 		}
 		return cmd;

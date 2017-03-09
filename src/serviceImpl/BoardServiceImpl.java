@@ -48,7 +48,7 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public List <ArticleBean> list(int[]pageArr) throws Exception {
+	public List <ArticleBean> list(int[]pageArr){
 		List<ArticleBean> list=new ArrayList<ArticleBean>();
 		list=dao.selectAll(pageArr);
 		System.out.println("====게시판 서비스 리스트==="+list);
@@ -78,7 +78,7 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public int count()throws Exception {
+	public int count(){
 		int count=0;
 		count=dao.count();
 		return count;

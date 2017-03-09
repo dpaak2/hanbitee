@@ -61,7 +61,7 @@ public class BoardDAOImpl implements BoardDAO{
 	}
 
 	@Override
-	public List<ArticleBean> selectAll(int[]pageArr) throws Exception {
+	public List<ArticleBean> selectAll(int[]pageArr){
 		List<ArticleBean> list=new ArrayList<ArticleBean>();
 		ArticleBean bean=null;
 		String sql=String.format(
@@ -71,21 +71,25 @@ public class BoardDAOImpl implements BoardDAO{
 				+ "\t WHERE t2.seq BETWEEN %s AND %s",String.valueOf(pageArr[0]),
 				String.valueOf(pageArr[1]));
 		System.out.println("selectAll query:"+sql);
-		ResultSet rs=DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME,Database.PASSWORD)
-				.getConnection().createStatement().executeQuery(sql);
-		/*"SELECT art_seq, pat_id, title, content, regdate, read_count FROM article order by art_seq desc"*);*/
+		ResultSet rs;
+		try {
+			rs = DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME,Database.PASSWORD)
+					.getConnection().createStatement().executeQuery(sql);
 
-
-		while(rs.next()){
-			ArticleBean temp=new ArticleBean();
-			temp.setSeq(rs.getString("art_seq"));
-			temp.setId(rs.getString("pat_id"));
-			temp.setTitle(rs.getString("title"));
-			temp.setContent(rs.getString("content"));
-			temp.setRegdate(rs.getString("regdate"));
-			temp.setReadCount(rs.getString("read_count"));
-			list.add(temp);
+			while(rs.next()){
+				ArticleBean temp=new ArticleBean();
+				temp.setSeq(rs.getString("art_seq"));
+				temp.setId(rs.getString("pat_id"));
+				temp.setTitle(rs.getString("title"));
+				temp.setContent(rs.getString("content"));
+				temp.setRegdate(rs.getString("regdate"));
+				temp.setReadCount(rs.getString("read_count"));
+				list.add(temp);
+				}		
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+		/*"SELECT art_seq, pat_id, title, content, regdate, read_count FROM article order by art_seq desc"*);*/
 		return list;
 	}
 
@@ -103,14 +107,20 @@ public class BoardDAOImpl implements BoardDAO{
 		return DatabaseFactory.createDatabase(Vendor.ORACLE,Database.USERNAME,Database.PASSWORD).getConnection().createStatement().executeUpdate(String.format("DELETE FROM article WHERER art_seq='%s'",param.getSeq()));
 	}
 	@Override
-	public int count() throws Exception {
+	public int count(){
 		int count=0;
 		String sql= "SELECT COUNT(*) AS count FROM Article";
-		Statement stmt= DatabaseFactory.createDatabase(Vendor.ORACLE, Database.USERNAME, Database.PASSWORD).getConnection().createStatement();
-		ResultSet rs=stmt.executeQuery(sql);
-		if(rs.next()){
-			count=Integer.parseInt(rs.getString("COUNT"));
+		Statement stmt;
+		try {
+			stmt = DatabaseFactory.createDatabase(Vendor.ORACLE, Database.USERNAME, Database.PASSWORD).getConnection().createStatement();
+			ResultSet rs=stmt.executeQuery(sql);
+			if(rs.next()){
+				count=Integer.parseInt(rs.getString("COUNT"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+	
 		return count;
 	}
 

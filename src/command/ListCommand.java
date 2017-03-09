@@ -6,9 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import handler.CommandHandler;
+import handler.Commandable;
 
-public class ListCommand extends Command implements CommandHandler{
+public class ListCommand extends Command implements Commandable{
 	public ListCommand(String directory,String action, String page, String pageNO){
 		super.directory=directory;
 		super.action=action;
